@@ -7,8 +7,8 @@ class Solution {
 public:
     int find(int l,int s){
         int x=INT_MIN;
-        for(int i=1;i<=s;++i){
-            if(s%i==0 && l%i==0) x=max(x,i);
+        for(int i=1;i<=s;++i){ // we can also run the loop backward as it will decrease the time complexity 
+            if(s%i==0 && l%i==0) x=max(x,i); // because here we can straight away return 
         }return x;
     }
     int findGCD(vector<int>& nums) {
