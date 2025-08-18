@@ -1,20 +1,22 @@
 // Partition Equal Subset Sum
 
 //Approach 1: recursion and memorisation
-// time complexity = O(n + 2^n)
-// space complexity = O(1)
+// time complexity = O(n + n*(sum of array/2)
+// space complexity = O(n*sum of array/2)
 
 class Solution {
 public:
-    bool func(vector<int>&nums,int target,int i){
+    bool func(vector<int>&nums,int target,int i,vector<vector<int>>&memo){
         if(target==0) return true;
         if(i>=nums.size() || target<0) return false;
-        return func(nums,target-nums[i],i+1) || func(nums,target,i+1);
+        if (memo[i][target] != -1) return memo[i][target];
+        return memo[i][target]=func(nums,target-nums[i],i+1,memo) || func(nums,target,i+1,memo);
     }
     bool canPartition(vector<int>& nums) {
         int s=accumulate(nums.begin(),nums.end(),0);
         if(s%2!=0) return false;
-        return func(nums,s/2,0);
+        vector<vector<int>> memo(nums.size(), vector<int>((s/2)+1, -1));
+        return func(nums,s/2,0,memo);
     }
 };
 
