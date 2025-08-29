@@ -1,3 +1,5 @@
+// Alternating Add and Subtract (Curried
+// Function)
 //approach : first create a constructor then create a function that takes multiple apply() as parameters then by switching a boolean each time
 // time complexity : O(n)
 // space complexity : O(1)
