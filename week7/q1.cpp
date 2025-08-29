@@ -1,4 +1,4 @@
-
+// Prime Numbers with Multiple Occurrences
 // approach : by linear search and check prime to only their square root in their range
 //Time Complexity = O(n*log2(n))
 //Space Complexity = O(2*n)
